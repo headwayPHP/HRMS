@@ -39,12 +39,12 @@ export default function Sidebar({ isOpen }) {
                         return (
                             <div key={href} className="relative">
                                 {isActive && (
-                                    <div className="absolute -left-5 top-0 h-full w-1.5 bg-[#F6821F] rounded-tr-md rounded-br-md" />
+                                    <div className="absolute -left-5 top-0 h-full w-1.5 bg-[var(--color1)] rounded-tr-md rounded-br-md" />
                                 )}
                                 <Link
                                     href={href}
                                     className={`flex items-center ${isOpen ? '' : 'justify-center '} gap-3 pl-4 pr-4 py-3 rounded-sm text-sm font-medium transition-all duration-200 ${isActive
-                                        ? 'bg-[#F6821F] text-white'
+                                        ? 'bg-[var(--color1)] text-white'
                                         : 'hover:bg-[#FF9A431A] text-black'
                                         }`}
                                 >

@@ -90,12 +90,12 @@ export default function LoginPage() {
                                 />
                                 Remember me
                             </label>
-                            <a href="/forgot-password" className="text-[#F6821F] hover:underline">Forgot password?</a>
+                            <a href="/forgot-password" className="text-[var(--color1)] hover:underline">Forgot password?</a>
                         </div>
 
                         <button
                             type="submit"
-                            className=" text-base border border-1 w-full bg-[#F6821F] text-white py-2 rounded-md hover:bg-orange-600 hover:cursor-pointer hover:text-[#F6821F] hover:bg-white hover:border-[#F6821F] mt-3"
+                            className=" text-base border border-1 w-full bg-[var(--color1)] text-white py-2 rounded-md hover:bg-orange-600 hover:cursor-pointer hover:text-[var(--color1)] hover:bg-white hover:border-[var(--color1)] mt-3"
                         >
                             Sign in
                         </button>

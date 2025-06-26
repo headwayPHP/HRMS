@@ -3,15 +3,19 @@
 import { HiMenu, HiBell, HiChevronDown } from 'react-icons/hi'
 import { BsSun, BsMoon } from 'react-icons/bs'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Navbar({ toggleSidebar }) {
     const [darkMode, setDarkMode] = useState(false)
 
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode)
-        // You can integrate dark mode switching logic here (class toggling, localStorage, etc.)
-    }
+    useEffect(() => {
+        // Apply class to <html>
+        if (darkMode) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    }, [darkMode])
 
     return (
         <header className="h-16 w-full bg-white  px-4 md:px-6 flex items-center justify-between shadow-sm text-black">
@@ -27,14 +31,14 @@ export default function Navbar({ toggleSidebar }) {
             <div className="flex items-center gap-5">
 
                 {/* Dark mode toggle */}
-                <button onClick={toggleDarkMode} className="text-xl bg-[#F6821F] p-2 rounded-3xl text-white font-bold cursor-pointer">
+                <button onClick={() => setDarkMode(!darkMode)} className="text-xl bg-[var(--color1)] p-2 rounded-3xl text-white font-bold cursor-pointer">
                     {darkMode ? <BsSun /> : <BsMoon />}
                 </button>
 
                 {/* Notification */}
                 <div className="relative">
                     <HiBell className="text-xl cursor-pointer" />
-                    <span className="absolute -top-1 -right-1 bg-[#F6821F]+ text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">6</span>
+                    <span className="absolute -top-1 -right-1 bg-[var(--color1)]+ text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">6</span>
                 </div>
 
                 {/* Profile with dropdown */}
