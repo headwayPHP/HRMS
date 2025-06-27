@@ -24,7 +24,7 @@ export default function Navbar({ toggleSidebar }) {
                 <button onClick={toggleSidebar} className="text-xl cursor-pointer">
                     <HiMenu />
                 </button>
-                <h1 className="text-lg font-bold">Admin Panel</h1>
+                {/* <h1 className="text-lg font-bold">Admin Panel</h1> */}
             </div>
 
             {/* Right: Actions */}

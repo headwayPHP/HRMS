@@ -4,6 +4,8 @@
   --background: #ffffff;
   --foreground: #171717;
   --color1: #F6821F;
+  --color2: #FFFAF5;
+  --color3: #fde6d2;
 }
 
 @theme inline {

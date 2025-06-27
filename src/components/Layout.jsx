@@ -14,8 +14,10 @@ export default function Layout({ children }) {
             <Sidebar isOpen={sidebarOpen} />
             <div className="flex-1 flex flex-col">
                 <Navbar toggleSidebar={toggleSidebar} />
-                <main className="p-6 flex-1 overflow-y-auto bg-[#fff]">
-                    {children}
+                <main className="p-6 flex-1 overflow-y-auto bg-[#fff] pt-0 flex justify-center">
+                    <div className="w-full max-w-7xl mx-auto">
+                        {children}
+                    </div>
                 </main>
             </div>
         </div>

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Layout from '@/components/Layout'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 export default function CreateRolePage() {
     const router = useRouter()
@@ -27,7 +28,7 @@ export default function CreateRolePage() {
         <Layout>
             <div className="p-6 text-black dark:text-dark pt-0 max-w-7xl mx-auto">
                 <div className="flex items-center justify-between mb-6">
-                    <h1 className="text-2xl font-bold text-[var(--color1)]">Roles</h1>
+                    <h1 className="text-2xl font-bold text-[var(--color1)]">Roles <br /> <Breadcrumbs /></h1>
 
                     <button
                         onClick={() => router.back()}

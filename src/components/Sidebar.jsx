@@ -2,13 +2,14 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { HiHome, HiUsers, HiCalendar, HiBriefcase, HiUserGroup, HiLogout } from 'react-icons/hi'
+import { HiHome, HiUsers, HiCalendar, HiBriefcase, HiUserGroup, HiLogout, HiCash } from 'react-icons/hi'
 
 const links = [
     { href: '/dashboard', label: 'Dashboard', icon: HiHome },
     { href: '/dashboard/employees', label: 'Employee', icon: HiUsers },
     { href: '/dashboard/attendance', label: 'Attendance', icon: HiCalendar },
     { href: '/dashboard/leave', label: 'Leave', icon: HiBriefcase },
+    { href: '/dashboard/payroll', label: 'Payroll', icon: HiCash },
     { href: '/dashboard/roles', label: 'Roles', icon: HiUserGroup },
 ]
 

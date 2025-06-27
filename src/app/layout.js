@@ -26,9 +26,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="light">
       <body
-        className={`${nunito.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${nunito.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-white text-black`}
       >
         {children}
       </body>
