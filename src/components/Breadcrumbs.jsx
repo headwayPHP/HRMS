@@ -11,7 +11,7 @@ export default function Breadcrumbs() {
 
     const segments = pathname
         .split('/')
-        .filter((seg) => seg && seg !== 'dashboard') // ⛔ Remove 'dashboard' from mid segments
+        .filter((seg) => seg && seg !== 'dashboard')
 
     return (
         <div className="text-sm mb-4 text-gray-600 dark:text-gray-300 pt-2">
@@ -29,7 +29,7 @@ export default function Breadcrumbs() {
                         <div key={i} className="flex items-center gap-2">
                             <span>/</span>
                             {i === segments.length - 1 ? (
-                                <span className="capitalize text-[var(--color1)] dark:text-[var(--color1)] font-semibold">
+                                <span className="capitalize text-[var(--color1)] dark:text-[var(--color1)]">
                                     {label}
                                 </span>
                             ) : (

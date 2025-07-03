@@ -10,16 +10,23 @@ export default function Layout({ children }) {
     const toggleSidebar = () => setSidebarOpen(!sidebarOpen)
 
     return (
-        <div className="flex min-h-screen bg-gray-50">
+        <div className="flex h-screen overflow-hidden">
+            {/* Sidebar: fixed height, no scroll */}
             <Sidebar isOpen={sidebarOpen} />
-            <div className="flex-1 flex flex-col">
+
+            {/* Right side: Navbar + Main */}
+            <div className="flex flex-col flex-1 overflow-hidden">
                 <Navbar toggleSidebar={toggleSidebar} />
-                <main className="p-6 flex-1 overflow-y-auto bg-[#fff] pt-0 flex justify-center">
+
+                {/* Main content: should scroll independently */}
+                <main className="flex-1 overflow-y-auto bg-white p-6 pt-0">
                     <div className="w-full max-w-7xl mx-auto">
                         {children}
                     </div>
                 </main>
             </div>
         </div>
+
+
     )
 }

@@ -32,3 +32,11 @@ body {
 button {
   cursor: pointer;
 }
+
+.custom-dropdown ul li:hover,
+.custom-dropdown ul li:focus,
+.custom-dropdown ul li:active {
+  background-color: var(--color1);
+  color: white;
+  border: none;
+}

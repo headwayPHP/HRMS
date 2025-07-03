@@ -38,12 +38,13 @@ export default function CreateLeaveRequestPage() {
     return (
         <Layout>
             <div className="p-6 text-black dark:text-dark pt-0 max-w-7xl mx-auto">
-                {/* Header with breadcrumbs */}
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex items-end justify-between mb-6">
                     <h1 className="text-2xl font-bold text-[var(--color1)]">
                         Leave <br />
                         <Breadcrumbs paths={['Leave', 'Create Leave Request']} />
+                        <div className='text-lg'>Leave Request</div>
                     </h1>
+
                     <button
                         onClick={() => router.back()}
                         className="bg-[var(--color1)] text-white px-6 py-2 rounded-lg hover:bg-orange-600"
@@ -52,12 +53,11 @@ export default function CreateLeaveRequestPage() {
                     </button>
                 </div>
 
-                {/* Form */}
                 <form onSubmit={handleSubmit} className="p-4 space-y-5 border-2 border-gray-300 rounded-lg">
-                    {/* Inputs */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        {/* Employee */}
-                        <div>
+                    {/* 3-Column Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Requested For */}
+                        <div className="w-full">
                             <label className="block text-sm font-medium mb-1">
                                 Requested For <span className="text-red-500">*</span>
                             </label>
@@ -70,7 +70,7 @@ export default function CreateLeaveRequestPage() {
                         </div>
 
                         {/* Leave Type */}
-                        <div>
+                        <div className="w-full">
                             <label className="block text-sm font-medium mb-1">
                                 Leave Type <span className="text-red-500">*</span>
                             </label>
@@ -81,29 +81,15 @@ export default function CreateLeaveRequestPage() {
                                 placeholder="Select Leave Type"
                             />
                         </div>
-
-                        {/* Reason */}
-                        <div>
-                            <label className="block text-sm font-medium mb-1">
-                                Reason <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                value={reason}
-                                onChange={(e) => setReason(e.target.value)}
-                                placeholder="Enter reason"
-                                className="w-full p-2 border border-gray-300 rounded outline-none"
-                                required
-                            />
-                        </div>
                     </div>
 
-                    {/* Dates */}
+
+                    {/* Date Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {/* From Date */}
                         <div>
                             <label className="block text-sm font-medium mb-1">
-                                From Date <span className="text-red-500">*</span>
+                                From Date<span className="text-red-500">*</span>
                             </label>
                             <CustomCalendar
                                 selectedDate={fromDate}
@@ -115,7 +101,7 @@ export default function CreateLeaveRequestPage() {
                         {/* To Date */}
                         <div>
                             <label className="block text-sm font-medium mb-1">
-                                To Date <span className="text-red-500">*</span>
+                                To Date<span className="text-red-500">*</span>
                             </label>
                             <CustomCalendar
                                 selectedDate={toDate}
@@ -124,8 +110,22 @@ export default function CreateLeaveRequestPage() {
                             />
                         </div>
                     </div>
+                    {/* Reason */}
+                    <div>
+                        <label className="block text-sm font-medium mb-1">
+                            Reason<span className="text-red-500">*</span>
+                        </label>
+                        <textarea
+                            type="text"
+                            value={reason}
+                            onChange={(e) => setReason(e.target.value)}
+                            placeholder="Enter reason"
+                            className="w-full p-2 border border-gray-300 rounded outline-none"
+                            required
+                        />
+                    </div>
 
-                    {/* Actions */}
+                    {/* Action Buttons */}
                     <div className="flex gap-4 mt-8 justify-end">
                         <button
                             type="button"

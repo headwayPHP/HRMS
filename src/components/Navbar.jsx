@@ -2,11 +2,14 @@
 
 import { HiMenu, HiBell, HiChevronDown } from 'react-icons/hi'
 import { BsSun, BsMoon } from 'react-icons/bs'
+import Alarm from '@/components/alarm'
+import { MdOutlineAccessAlarm } from "react-icons/md";
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 
 export default function Navbar({ toggleSidebar }) {
     const [darkMode, setDarkMode] = useState(false)
+    const [showAlarm, setShowAlarm] = useState(false)
 
     useEffect(() => {
         // Apply class to <html>
@@ -31,10 +34,20 @@ export default function Navbar({ toggleSidebar }) {
             <div className="flex items-center gap-5">
 
                 {/* Dark mode toggle */}
-                <button onClick={() => setDarkMode(!darkMode)} className="text-xl bg-[var(--color1)] p-2 rounded-3xl text-white font-bold cursor-pointer">
+                {/* <button onClick={() => setDarkMode(!darkMode)} className="text-xl bg-[var(--color1)] p-2 rounded-3xl text-white font-bold cursor-pointer">
                     {darkMode ? <BsSun /> : <BsMoon />}
-                </button>
+                </button> */}
 
+                <div className="relative">
+                    {/* Alarm Icon */}
+                    <MdOutlineAccessAlarm
+                        className="text-xl cursor-pointer"
+                        onClick={() => setShowAlarm(!showAlarm)}
+                    />
+
+                    {/* Alarm Popup */}
+                    <Alarm isOpen={showAlarm} onClose={() => setShowAlarm(false)} />
+                </div>
                 {/* Notification */}
                 <div className="relative">
                     <HiBell className="text-xl cursor-pointer" />
