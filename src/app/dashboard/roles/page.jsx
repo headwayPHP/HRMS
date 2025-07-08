@@ -49,7 +49,7 @@ export default function RolesPage() {
                     <h1 className="text-xl sm:text-2xl font-bold text-[var(--color1)]">Roles  <br /> <Breadcrumbs /></h1>
                     <button
                         onClick={() => router.push('/dashboard/roles/create')}
-                        className="flex items-center gap-2 bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-orange-600 w-fit"
+                        className="flex items-center gap-2 bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-[var(--color11)] w-fit"
                     >
                         <FaPlus />
                         Add Role
@@ -63,7 +63,7 @@ export default function RolesPage() {
 
                     <div className="w-full overflow-x-auto rounded-xl border border-gray-300 border-b-0">
                         <table className="min-w-[800px] w-full text-sm">
-                            <thead className="bg-[#FFFAF5] dark:bg-[#FFFAF5]">
+                            <thead className="bg-[var(--light-blue)] dark:bg-[var(--light-blue)]">
                                 <tr className='text-center'>
                                     <th className="p-3 border-b border-b-gray-300 ">Sr. No</th>
                                     <th className="p-3 border-b border-b-gray-300 ">Employee Name</th>
@@ -78,7 +78,7 @@ export default function RolesPage() {
                                 {roles.map((item, index) => (
                                     <tr
                                         key={item.id}
-                                        className="hover:bg-yellow-50 dark:hover:bg-[#FFFAF5] text-center"
+                                        className="hover:bg-[var(--light-blue-hover)] dark:hover:bg-[var(--light-blue)] text-center"
                                     >
                                         <td className="p-3 border-b border-b-gray-300">{index + 1}</td>
                                         <td className="p-3 border-b border-b-gray-300">{item.name}</td>

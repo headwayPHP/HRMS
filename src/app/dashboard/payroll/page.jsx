@@ -60,7 +60,7 @@ export default function PayrollPage() {
                     <div className="flex items-center justify-end">
                         <button
                             onClick={() => router.push('/dashboard/payroll/create')}
-                            className="flex items-center gap-2 bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-orange-600 w-fit"
+                            className="flex items-center gap-2 bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-[var(--color11)] w-fit"
                         >
                             <FaPlus />
                             Create Payslip
@@ -77,7 +77,7 @@ export default function PayrollPage() {
                 {/* Payroll Table */}
                 <div className="overflow-x-auto rounded-xl border border-gray-300 border-b-0">
                     <table className="w-full text-sm">
-                        <thead className="bg-[#FFFAF5]  text-left">
+                        <thead className="bg-[var(--light-blue)]  text-left">
                             <tr className='text-center'>
                                 <th className="p-3 border-b border-gray-300">Sr. No</th>
                                 <th className="p-3 border-b border-gray-300">Employee Name</th>
@@ -92,7 +92,7 @@ export default function PayrollPage() {
                         </thead>
                         <tbody>
                             {payrollData.map((item, index) => (
-                                <tr key={item.id} className="text-center hover:bg-yellow-50 -[#2a2a2a]">
+                                <tr key={item.id} className="text-center hover:bg-[var(--light-blue-hover)] -[#2a2a2a]">
                                     <td className="p-3 border-b border-gray-300">{index + 1}</td>
                                     <td className="p-3 border-b border-gray-300">{item.name}</td>
                                     <td className="p-3 border-b border-gray-300">{item.designation}</td>

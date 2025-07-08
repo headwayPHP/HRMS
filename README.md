@@ -37,3 +37,37 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 wake me up
+
+
+i have added the Loading Provider but it still takes some time to even go to loading so 
+if it takes 3 seconds as we click on an link of other page then it will be nothing happening in 2.5 seconds and in half seconds the loading screen and other page opens
+
+shift + alt + 4 = for code completion copilot toggle
+
+
+
+----
+
+Smart Chokidar:
+
+- opening and closing facility of gate (form add facilities)
+- ?? Service Provider add option (full time or schedule time) / schedule/unschedule -> day & night shift
+- Maintainace - add penalty(due date & penalty close while adding maintenance or set one time by society admin)
+- New Section: Pets section(with vaccine, regisration request and approval)
+- New Section: Society Event Calendar
+- Notice: while adding a notice if it is a meeting then include meetings time in minutes
+- Each society must have option of downloading backup option.
+- Society specific rules and regulation
+- ?? PG project in Smart Chokidar
+
+
+HRMS:
+- color change from orange to blue
+
+All projects:
+- in frontpages if sensitive info put XXXXX in the middle.
+- Add (Powered by Headway) in footer every project
+
+Kunjesh bawa:
+- Seva Committee section
+

@@ -33,7 +33,7 @@ export default function LeaveTypePage() {
                         <div className="text-lg font-semibold text-[var(--color1)]">Leave Type List</div></h1>
                     <button
                         onClick={() => router.push('/dashboard/leave/type/create')}
-                        className="flex items-center gap-2 bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-orange-600"
+                        className="flex items-center gap-2 bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-[var(--color11)]"
                     >
                         <FaPlus />
                         Add Leave Type
@@ -45,7 +45,7 @@ export default function LeaveTypePage() {
                 {/* Table */}
                 <div className="overflow-x-auto rounded-xl border border-gray-300">
                     <table className="w-full text-sm">
-                        <thead className="bg-[#FFFAF5]">
+                        <thead className="bg-[var(--light-blue)]">
                             <tr className="text-center">
                                 <th className="p-3 border-b border-gray-300">Sr. No</th>
                                 <th className="p-3 border-b border-gray-300 text-left">Type</th>
@@ -57,7 +57,7 @@ export default function LeaveTypePage() {
                         </thead>
                         <tbody>
                             {leaveTypes.map((item, index) => (
-                                <tr key={item.id} className="hover:bg-yellow-50 text-center">
+                                <tr key={item.id} className="hover:bg-[var(--light-blue-hover)] text-center">
                                     <td className="p-3 border-b border-gray-300">{index + 1}</td>
                                     <td className="p-3 border-b border-gray-300 text-left">{item.type}</td>
                                     <td className="p-3 border-b border-gray-300">{item.isPaid ? 'Yes' : 'No'}</td>

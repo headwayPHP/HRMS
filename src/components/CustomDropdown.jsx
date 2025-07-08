@@ -1,17 +1,41 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 export default function CustomDropdown({ options = [], value, onChange, placeholder = 'Select option' }) {
     const [open, setOpen] = useState(false)
+    const dropdownRef = useRef(null)
 
     const handleSelect = (option) => {
         onChange(option)
         setOpen(false)
     }
 
+    // Handle click outside and Escape key
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setOpen(false)
+            }
+        }
+
+        const handleEscape = (event) => {
+            if (event.key === 'Escape') {
+                setOpen(false)
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside)
+        document.addEventListener('keydown', handleEscape)
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+            document.removeEventListener('keydown', handleEscape)
+        }
+    }, [])
+
     return (
-        <div className="relative w-full custom-dropdown">
+        <div className="relative w-full custom-dropdown" ref={dropdownRef}>
             <button
                 type="button"
                 onClick={() => setOpen(!open)}

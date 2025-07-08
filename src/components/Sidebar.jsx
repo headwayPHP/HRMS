@@ -31,6 +31,11 @@ const menuItems = [
         icon: HiCash,
     },
     {
+        label: 'Notice',
+        href: '/dashboard/notice',
+        icon: HiCash,
+    },
+    {
         label: 'Roles',
         href: '/dashboard/roles',
         icon: HiUserGroup,
@@ -74,80 +79,86 @@ export default function Sidebar({ isOpen }) {
     const isActive = (href) => pathname === href
 
     return (
-        <aside className={`bg-[#FFF8F3] text-black h-screen p-4 flex flex-col justify-between transition-all duration-300 ${isOpen ? 'w-64' : 'w-20'}`}>
-            <div>
+        <aside className={`bg-[var(--color1)] text-[var(--color1)] h-screen flex flex-col transition-all duration-300 ${isOpen ? 'w-64' : 'w-20'}`}>
+            {/* Top content (Logo and menu) */}
+            <div className="flex-1 flex flex-col overflow-hidden">
                 {/* Logo */}
-                <div className="flex items-center justify-center mb-6">
+                <div className="flex items-center justify-center mb-6 mt-4">
                     <img src="/logo.png" alt="Logo" className={`transition-all duration-300 ${isOpen ? 'w-24' : 'w-8'}`} />
                 </div>
 
-                {/* Menu */}
-                <nav className="flex flex-col gap-3">
-                    {menuItems.map(({ label, href, icon: Icon, subLinks, baseHref }) => {
-                        const isSubmenu = !!subLinks
-                        const isCurrent = isSubmenu ? pathname.startsWith(baseHref) : pathname === href
-                        const isOpenMenu = expandedMenus[label]
+                {/* Scrollable Menu */}
+                <div className="flex-1 overflow-y-auto custom-scroll px-4 pb-4">
+                    <nav className="flex flex-col gap-3">
+                        {menuItems.map(({ label, href, icon: Icon, subLinks, baseHref }) => {
+                            const isSubmenu = !!subLinks
+                            const isCurrent = isSubmenu
+                                ? pathname.startsWith(baseHref)
+                                : href === '/dashboard'
+                                    ? pathname === '/dashboard'
+                                    : pathname.startsWith(href)
+                            const isOpenMenu = expandedMenus[label]
 
-                        return (
-                            <div key={label} className="relative">
-                                {isCurrent && (
-                                    <div className="absolute -left-5 top-0 h-full w-1.5 bg-[var(--color1)] rounded-tr-md rounded-br-md" />
-                                )}
+                            return (
+                                <div key={label} className="relative">
+                                    {isCurrent && (
+                                        <div className="absolute -left-5 top-0 h-full w-1.5 bg-[var(--color3)] rounded-tr-md rounded-br-md" />
+                                    )}
 
-                                {/* Main Link or Toggle */}
-                                {isSubmenu ? (
-                                    <button
-                                        onClick={() => toggleMenu(label)}
-                                        className={`w-full flex items-center gap-3 ${isOpen ? '' : 'justify-center'} px-4 py-3 rounded-sm text-sm font-medium transition-all duration-200 ${isCurrent ? 'bg-[var(--color1)] text-white' : 'hover:bg-[#FF9A431A] text-black'}`}
-                                    >
-                                        <Icon size={20} className="shrink-0" />
-                                        {isOpen && (
-                                            <>
-                                                <span className="flex-1 text-left">{label}</span>
-                                                {isOpenMenu ? <IoIosArrowDown size={16} /> : <IoIosArrowForward size={16} />}
-                                            </>
-                                        )}
-                                    </button>
-                                ) : (
-                                    <Link
-                                        href={href}
-                                        className={`flex items-center gap-3 ${isOpen ? '' : 'justify-center'} px-4 py-3 rounded-sm text-sm font-medium transition-all duration-200 ${isCurrent ? 'bg-[var(--color1)] text-white' : 'hover:bg-[#FF9A431A] text-black'}`}
-                                    >
-                                        <Icon size={20} className="shrink-0" />
-                                        {isOpen && <span>{label}</span>}
-                                    </Link>
-                                )}
+                                    {isSubmenu ? (
+                                        <button
+                                            onClick={() => toggleMenu(label)}
+                                            className={`w-full flex items-center gap-3 ${isOpen ? '' : 'justify-center'} px-4 py-3 rounded-sm text-sm font-medium transition-all duration-200 ${isCurrent ? 'bg-[var(--light-blue)] text-[var(--color1)]' : 'hover:bg-[#FF9A431A] text-white'}`}
+                                        >
+                                            <Icon size={20} className="shrink-0" />
+                                            {isOpen && (
+                                                <>
+                                                    <span className="flex-1 text-left">{label}</span>
+                                                    {isOpenMenu ? <IoIosArrowDown size={16} /> : <IoIosArrowForward size={16} />}
+                                                </>
+                                            )}
+                                        </button>
+                                    ) : (
+                                        <Link
+                                            href={href}
+                                            className={`flex items-center gap-3 ${isOpen ? '' : 'justify-center'} px-4 py-3 rounded-sm text-sm font-medium transition-all duration-200 ${isCurrent ? 'bg-[#fff] text-[var(--color1)]' : 'hover:bg-[#FF9A431A] text-white'}`}
+                                        >
+                                            <Icon size={20} className="shrink-0" />
+                                            {isOpen && <span>{label}</span>}
+                                        </Link>
+                                    )}
 
-                                {/* Submenu Links */}
-                                {isSubmenu && isOpenMenu && isOpen && (
-                                    <div className="ml-8 mt-1 flex flex-col gap-1">
-                                        {subLinks.map(({ href, label }) => (
-                                            <Link
-                                                key={href}
-                                                href={href}
-                                                className={`text-sm py-2 px-2 rounded hover:bg-[#FF9A431A] ${pathname === href ? 'text-[var(--color1)] font-medium' : 'text-black'}`}
-                                            >
-                                                {label}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        )
-                    })}
-                </nav>
+                                    {isSubmenu && isOpenMenu && isOpen && (
+                                        <div className="ml-8 mt-1 flex flex-col gap-1">
+                                            {subLinks.map(({ href, label }) => (
+                                                <Link
+                                                    key={href}
+                                                    href={href}
+                                                    className={`text-sm py-2 px-2 rounded hover:bg-[#FF9A431A] hover:text-[#fff] ${pathname === href ? 'text-[#fff] font-medium' : 'text-white'}`}
+                                                >
+                                                    {label}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            )
+                        })}
+                    </nav>
+                </div>
             </div>
 
-            {/* Logout */}
-            <div className={` ${isOpen ? 'px-4' : 'px-2'} `}>
+            {/* Logout Button */}
+            <div className={`px-4 py-3 pl-8`}>
                 <button
                     onClick={() => alert('Logging out...')}
-                    className="flex items-center gap-3 w-full text-black py-2 rounded hover:bg-red-100 text-sm font-medium"
+                    className="flex items-center gap-3 w-full text-[var(--color1)] py-2 rounded hover:bg-[var(--light-blue)] text-sm font-medium"
                 >
                     <HiLogout size={20} className="shrink-0" />
                     {isOpen && <span>Logout</span>}
                 </button>
             </div>
         </aside>
+
     )
 }

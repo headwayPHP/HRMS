@@ -83,7 +83,7 @@ export default function Alarm({ isOpen, onClose }) {
                 </button>
                 <button
                     onClick={handleSubmit}
-                    className="bg-orange-500 text-white px-4 py-1 rounded hover:bg-orange-600"
+                    className="bg-orange-500 text-white px-4 py-1 rounded hover:bg-[var(--color11)]"
                 >
                     OK
                 </button>

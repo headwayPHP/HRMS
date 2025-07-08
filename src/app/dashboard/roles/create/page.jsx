@@ -46,7 +46,7 @@ export default function CreateLeaveRequestPage() {
                     </h1>
                     <button
                         onClick={() => router.back()}
-                        className="bg-[var(--color1)] text-white px-6 py-2 rounded-lg hover:bg-orange-600"
+                        className="bg-[var(--color1)] text-white px-6 py-2 rounded-lg hover:bg-[var(--color11)]"
                     >
                         Back
                     </button>
@@ -136,7 +136,7 @@ export default function CreateLeaveRequestPage() {
                         </button>
                         <button
                             type="submit"
-                            className="bg-[var(--color1)] text-white px-6 py-2 rounded-lg hover:bg-orange-600"
+                            className="bg-[var(--color1)] text-white px-6 py-2 rounded-lg hover:bg-[var(--color11)]"
                         >
                             Submit
                         </button>

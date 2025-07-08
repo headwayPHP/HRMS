@@ -109,7 +109,7 @@ export default function AttendancePage() {
                 <h2 className="text-lg font-semibold mb-4 text-[var(--color1)]">Today Employee Attendance</h2>
                 <div className="overflow-x-auto rounded-xl border border-gray-300 border-b-0">
                     <table className="min-w-[1000px] w-full text-sm">
-                        <thead className="bg-[#FFFAF5]">
+                        <thead className="bg-[var(--light-blue)]">
                             <tr className="text-center">
                                 {['Sr. No', 'Employee Name', 'Designation', 'Department', 'Punch In', 'Punch Out', 'Worked Hours', 'Status', 'Details', 'Action'].map((title, idx) => (
                                     <th key={idx} className="p-3 border-b border-gray-300">{title}</th>
@@ -118,7 +118,7 @@ export default function AttendancePage() {
                         </thead>
                         <tbody>
                             {filteredData.map((emp, index) => (
-                                <tr key={emp.id} className="hover:bg-yellow-50 text-center">
+                                <tr key={emp.id} className="hover:bg-[var(--light-blue-hover)] text-center">
                                     <td className="p-3 border-b border-gray-300">{index + 1}</td>
                                     <td className="p-3 border-b border-gray-300">{emp.name}</td>
                                     <td className="p-3 border-b border-gray-300">{emp.designation}</td>

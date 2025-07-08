@@ -55,7 +55,7 @@ export default function EmployeeListPage() {
                     </div>
                     <button
                         onClick={() => router.push('/dashboard/employees/create')}
-                        className="flex items-center gap-2 bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-orange-600"
+                        className="flex items-center gap-2 bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-[var(--color11)]"
                     >
                         <FaPlus />
                         Add New Employee
@@ -123,7 +123,7 @@ export default function EmployeeListPage() {
                     <h2 className="text-lg font-semibold mb-4 text-[var(--color1)]">Employee List</h2>
                     <div className="overflow-x-auto rounded-xl border border-gray-300 border-b-0">
                         <table className="min-w-[640px] w-full text-sm">
-                            <thead className="bg-[#FFFAF5] dark:bg-[#FFFAF5]">
+                            <thead className="bg-[var(--light-blue)] dark:bg-[var(--light-blue)]">
                                 <tr>
                                     {['Sr. No', 'Employee Name', 'Designation', 'Department', 'Email', 'Status', 'Details', 'Actions'].map((title, idx) => (
                                         <th key={idx} className="p-3 border-b border-gray-300 text-left whitespace-nowrap">
@@ -134,7 +134,7 @@ export default function EmployeeListPage() {
                             </thead>
                             <tbody>
                                 {filteredEmployees.map((emp, index) => (
-                                    <tr key={emp.id} className="hover:bg-yellow-50 dark:hover:bg-[#FFFAF5] text-left">
+                                    <tr key={emp.id} className="hover:bg-[var(--light-blue-hover)] dark:hover:bg-[var(--light-blue)] text-left">
                                         <td className="p-3 border-b border-gray-300">{index + 1}</td>
                                         <td className="p-3 border-b border-gray-300">{emp.name}</td>
                                         <td className="p-3 border-b border-gray-300">{emp.designation}</td>

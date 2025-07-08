@@ -95,7 +95,7 @@ export default function LoginPage() {
 
                         <button
                             type="submit"
-                            className=" text-base border border-1 w-full bg-[var(--color1)] text-white py-2 rounded-md hover:bg-orange-600 hover:cursor-pointer hover:text-[var(--color1)] hover:bg-white hover:border-[var(--color1)] mt-3"
+                            className=" text-base border border-1 w-full bg-[var(--color1)] text-white py-2 rounded-md hover:bg-[var(--color11)] hover:cursor-pointer hover:text-[var(--color1)] hover:bg-white hover:border-[var(--color1)] mt-3"
                         >
                             Sign in
                         </button>

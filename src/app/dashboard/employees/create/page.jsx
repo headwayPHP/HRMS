@@ -573,7 +573,7 @@ export default function AddEmployeePage() {
                         </button>
                         <button
                             type="submit"
-                            className="bg-[var(--color1)] text-white px-6 py-2 rounded-lg hover:bg-orange-600"
+                            className="bg-[var(--color1)] text-white px-6 py-2 rounded-lg hover:bg-[var(--color11)]"
                         >
                             Add
                         </button>

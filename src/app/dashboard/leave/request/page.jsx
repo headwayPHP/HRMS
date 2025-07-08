@@ -71,7 +71,7 @@ export default function LeavePage() {
                     </div>
                     <button
                         onClick={() => router.push('/dashboard/leave/request/create')}
-                        className="flex items-center gap-2 bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-orange-600"
+                        className="flex items-center gap-2 bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-[var(--color11)]"
                     >
                         <FaPlus />
                         Create Leave Request
@@ -129,7 +129,7 @@ export default function LeavePage() {
                 <h2 className="text-lg font-semibold mb-4 text-[var(--color1)]">Leave Request Lists</h2>
                 <div className="overflow-x-auto rounded-xl border border-gray-300 border-b-0">
                     <table className="min-w-[1000px] w-full text-sm">
-                        <thead className="bg-[#FFFAF5]">
+                        <thead className="bg-[var(--light-blue)]">
                             <tr className="text-center">
                                 {["Sr. no", "Employee Name", "Type", "From", "To", "Requested Date", "Requested By", "Days", "Reason", "Status", "Action"].map((title, idx) => (
                                     <th key={idx} className="p-3 border-b border-gray-300">{title}</th>
@@ -138,7 +138,7 @@ export default function LeavePage() {
                         </thead>
                         <tbody>
                             {filteredData.map((item, index) => (
-                                <tr key={item.id} className="hover:bg-yellow-50 text-center">
+                                <tr key={item.id} className="hover:bg-[var(--light-blue-hover)] text-center">
                                     <td className="p-3 border-b border-gray-300">{index + 1}</td>
                                     <td className="p-3 border-b border-gray-300">{item.name}</td>
                                     <td className="p-3 border-b border-gray-300">{item.type}</td>

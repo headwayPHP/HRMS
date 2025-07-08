@@ -36,7 +36,7 @@ export default function AssetTypePage() {
 
                     <button
                         onClick={() => router.push('/dashboard/asset/asset_type/create')}
-                        className="flex items-center gap-2 bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-orange-600"
+                        className="flex items-center gap-2 bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-[var(--color11)]"
                     >
                         <FaPlus />
                         Add Asset Type
@@ -46,7 +46,7 @@ export default function AssetTypePage() {
                 {/* Table */}
                 <div className="overflow-x-auto rounded-xl border border-gray-300 border-b-0">
                     <table className="min-w-[800px] w-full text-sm">
-                        <thead className="bg-[#FFFAF5]">
+                        <thead className="bg-[var(--light-blue)]">
                             <tr className="text-center">
                                 <th className="p-3 border-b border-gray-300">Sr. No</th>
                                 <th className="p-3 border-b border-gray-300">Name</th>
@@ -57,7 +57,7 @@ export default function AssetTypePage() {
                         </thead>
                         <tbody>
                             {assetTypes.map((type, index) => (
-                                <tr key={type.id} className="hover:bg-yellow-50 text-center">
+                                <tr key={type.id} className="hover:bg-[var(--light-blue-hover)] text-center">
                                     <td className="p-3 border-b border-gray-300">{index + 1}</td>
                                     <td className="p-3 border-b border-gray-300">{type.name}</td>
                                     <td className="p-3 border-b border-gray-300">{type.count}</td>
@@ -75,7 +75,7 @@ export default function AssetTypePage() {
                                     <td className="p-3 border-b border-gray-300 text-center">
                                         <div className="flex justify-center gap-3 text-[var(--color1)] scale-125">
                                             <FaEdit
-                                                className="cursor-pointer hover:text-orange-600 scale-125"
+                                                className="cursor-pointer hover:text-[var(--color11)] scale-125"
                                                 onClick={() => router.push(`/dashboard/asset/asset_type/edit/${type.id}`)}
                                             />
                                             <FaDeleteLeft

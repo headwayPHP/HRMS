@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono, Nunito_Sans } from "next/font/google";
+import LoadingProvider from '@/components/LoadingProvider'
 import "./globals.css";
 
 const geistSans = Geist({
@@ -30,7 +31,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${nunito.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-white text-black`}
       >
-        {children}
+        <LoadingProvider>
+          {children}
+        </LoadingProvider>
       </body>
     </html>
   );

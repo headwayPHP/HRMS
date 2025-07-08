@@ -1,7 +1,6 @@
-// components/CustomCalendar.jsx
 'use client'
 
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react';
 import { FaCalendarAlt } from 'react-icons/fa';
 
 export default function CustomCalendar({ selectedDate: initialDate, onChange }) {
@@ -9,10 +8,39 @@ export default function CustomCalendar({ selectedDate: initialDate, onChange }) 
     const [selectedDate, setSelectedDate] = useState(initialDate || null);
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
+    const calendarRef = useRef(null);
+
     const handleApply = useCallback(() => {
         onChange(selectedDate);
         setIsCalendarOpen(false);
     }, [selectedDate, onChange]);
+
+    // Handle outside click & Escape
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (calendarRef.current && !calendarRef.current.contains(event.target)) {
+                if (selectedDate) {
+                    onChange(selectedDate);  // Save selected date
+                }
+                setIsCalendarOpen(false);
+            }
+        };
+
+
+        const handleEsc = (event) => {
+            if (event.key === 'Escape') {
+                setIsCalendarOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('keydown', handleEsc);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('keydown', handleEsc);
+        };
+    }, []);
 
     const getDaysInMonth = useCallback((year, month) => {
         return new Date(year, month + 1, 0).getDate();
@@ -47,7 +75,6 @@ export default function CustomCalendar({ selectedDate: initialDate, onChange }) 
 
         const days = [];
 
-        // Previous month days
         for (let i = 0; i < daysFromPrevMonth; i++) {
             days.push(
                 <div key={`prev-${i}`} className="text-gray-300 p-2 w-8 h-8 flex items-center justify-center text-sm">
@@ -56,7 +83,6 @@ export default function CustomCalendar({ selectedDate: initialDate, onChange }) 
             );
         }
 
-        // Current month days
         for (let i = 1; i <= daysInMonth; i++) {
             const isSelected = selectedDate &&
                 selectedDate.getDate() === i &&
@@ -66,8 +92,7 @@ export default function CustomCalendar({ selectedDate: initialDate, onChange }) 
             days.push(
                 <div
                     key={`current-${i}`}
-                    className={`p-2 w-8 h-8 flex items-center justify-center text-sm rounded cursor-pointer ${isSelected ? 'bg-orange-500 text-white' : 'hover:bg-orange-100'
-                        }`}
+                    className={`p-2 w-8 h-8 flex items-center justify-center text-sm rounded cursor-pointer ${isSelected ? 'bg-[var(--color1)] text-white' : 'hover:bg-[var(--color2)]'}`}
                     onClick={() => selectDate(i)}
                 >
                     {i}
@@ -75,7 +100,6 @@ export default function CustomCalendar({ selectedDate: initialDate, onChange }) 
             );
         }
 
-        // Next month days
         for (let i = 1; i <= daysFromNextMonth; i++) {
             days.push(
                 <div key={`next-${i}`} className="text-gray-300 p-2 w-8 h-8 flex items-center justify-center text-sm">
@@ -88,7 +112,7 @@ export default function CustomCalendar({ selectedDate: initialDate, onChange }) 
     }, [currentDate, selectedDate, getDaysInMonth, getFirstDayOfMonth, selectDate]);
 
     return (
-        <div className="relative w-full">
+        <div className="relative w-full" ref={calendarRef}>
             {/* Input box */}
             <div
                 className="flex items-center border border-gray-300 rounded px-3 py-2 bg-white cursor-pointer"
@@ -110,18 +134,10 @@ export default function CustomCalendar({ selectedDate: initialDate, onChange }) 
                             {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}
                         </span>
                         <div className="flex gap-2">
-                            <button
-                                type="button"
-                                onClick={prevMonth}
-                                className="text-[var(--color1)] hover:text-black bg-[var(--color3)] px-2 rounded font-bold"
-                            >
+                            <button type="button" onClick={prevMonth} className="text-[var(--color2)] bg-[var(--color1)] px-2 rounded font-bold">
                                 ‹
                             </button>
-                            <button
-                                type="button"
-                                onClick={nextMonth}
-                                className="text-[var(--color1)] hover:text-black bg-[var(--color3)] px-2 rounded font-bold"
-                            >
+                            <button type="button" onClick={nextMonth} className="text-[var(--color2)] bg-[var(--color1)] px-2 rounded font-bold">
                                 ›
                             </button>
                         </div>
@@ -135,15 +151,13 @@ export default function CustomCalendar({ selectedDate: initialDate, onChange }) 
                     </div>
 
                     {/* Calendar Days */}
-                    <div className="grid grid-cols-7 px-4">
-                        {renderCalendar}
-                    </div>
+                    <div className="grid grid-cols-7 px-4">{renderCalendar}</div>
 
                     {/* Apply Button */}
                     <div className="flex justify-center px-4 pb-4 border-t border-[var(--color1)]">
                         <button
                             type="button"
-                            className="bg-orange-500 text-white px-6 py-1 rounded-md hover:bg-orange-600 text-sm font-medium mt-2"
+                            className="bg-[var(--color1)] text-white px-6 py-1 rounded-md hover:bg-[var(--color11)] text-sm font-medium mt-2"
                             onClick={handleApply}
                         >
                             Apply Now
