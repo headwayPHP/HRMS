@@ -326,7 +326,7 @@ export default function AddEmployeePage() {
                     </div>
 
                     <div className='p-4 border-x-1 border-gray-300 mb-0'></div>
-                    <div className="border border-gray-300 p-6 rounded-t-xl shadow-sm pt-0 px-0 pb-3 mb-0">
+                    <div className="border border-gray-300 p-6  shadow-sm pt-0 px-0 pb-3 mb-0">
                         <h2 className="text-lg font-semibold pb-3 rounded-xl text-[var(--color1)] pt-3 px-6 bg-[var(--color2)]">
                             Bank Details
                         </h2>
