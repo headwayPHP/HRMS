@@ -192,7 +192,7 @@ export default function AssetsPage() {
 
 
                                     <td className="p-3 border-b border-gray-300">
-                                        <div className="flex justify-center gap-3 text-[var(--color1)] scale-125">
+                                        <div className="flex justify-center gap-3 text-[var(--color1)]">
                                             <FaEdit
                                                 title="Edit"
                                                 className="cursor-pointer hover:scale-110 transition-transform scale-125"

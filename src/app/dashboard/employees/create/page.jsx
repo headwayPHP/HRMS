@@ -56,11 +56,22 @@ export default function AddEmployeePage() {
                 <form className="space-y-8">
                     {/* Employee Basic Details */}
                     <div className="border border-gray-300 p-6 rounded-t-xl shadow-sm pt-0 px-0 pb-3 mb-0">
-                        <h2 className="text-lg font-semibold pb-3 rounded-xl text-[var(--color1)] pt-3 px-6 bg-[var(--color2)]">Employee Basic Details</h2>
+                        <h2 className="text-lg font-semibold pb-3 rounded-t-xl text-[var(--color1)] pt-3 px-6 bg-[var(--color2)]">Employee Basic Details</h2>
                         <div className="flex flex-col gap-3  border-t border-gray-300 pt-3">
 
+                            {/* Employee Code */}
+                            <div className="flex flex-col md:flex-row gap-4 md:items-center  px-6 ">
+                                <label className="w-56 text-sm font-medium">Employee Code</label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Employee Name"
+                                    className="flex-1 p-2 border border-gray-300 rounded outline-none bg-[#CFCFCF] text-[#505050]"
+                                    value="EMP-00042"
+                                    disabled
+                                />
+                            </div>
                             {/* Employee Name */}
-                            <div className="flex items-center gap-4  px-6 ">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4  px-6 border-t-1 pt-3 border-gray-300">
                                 <label className="w-56 text-sm font-medium">Employee Name</label>
                                 <input
                                     type="text"
@@ -69,7 +80,7 @@ export default function AddEmployeePage() {
                                 />
                             </div>
                             {/* Phone Number */}
-                            <div className="flex items-center gap-4 px-6 border-t-1 pt-3 border-gray-300">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t-1 pt-3 border-gray-300">
                                 <label className="w-56 text-sm font-medium">Phone Number</label>
                                 <input
                                     type="text"
@@ -78,8 +89,22 @@ export default function AddEmployeePage() {
                                 />
                             </div>
 
+                            {/* Employee Email */}
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t-1 pt-3 border-gray-300">
+                                <label className="w-56 text-sm font-medium">Employee Email</label>
+                                <input
+                                    type="email"
+                                    placeholder="Enter Employee Email"
+                                    className="flex-1 p-2 border border-gray-300 rounded outline-none"
+                                    onChange={(e) => e.target.value = e.target.value.toLowerCase()}
+                                    onInput={(e) => e.target.value = e.target.value.toLowerCase()}
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                />
+                            </div>
+
+
                             {/* Employee ID */}
-                            <div className="flex items-center gap-4 px-6 border-t-1 pt-3 border-gray-300">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t-1 pt-3 border-gray-300">
                                 <label className="w-56 text-sm font-medium">Employee ID</label>
                                 <input
                                     type="text"
@@ -89,7 +114,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* Employee Type */}
-                            <div className="flex items-center gap-4 px-6 border-t-1 pt-3 border-gray-300">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t-1 pt-3 border-gray-300">
                                 <label className="w-56 text-sm font-medium">Employee Type</label>
                                 <div className="flex-1">
                                     <CustomDropdown
@@ -121,24 +146,27 @@ export default function AddEmployeePage() {
                     <div className='p-4 border-x-1 border-gray-300 mb-0'></div>
 
                     <div className="border border-gray-300 p-6  shadow-sm pt-0 px-0 pb-3 mb-0">
-                        <h2 className="text-lg font-semibold pb-3 rounded-xl text-[var(--color1)] pt-3 px-6 bg-[var(--color2)]">
+                        <h2 className="text-lg font-semibold pb-3  text-[var(--color1)] pt-3 px-6 bg-[var(--color2)]">
                             Employee Personal Details
                         </h2>
 
                         <div className="flex flex-col gap-3 border-t border-gray-300 pt-3">
 
                             {/* Email */}
-                            <div className="flex items-center gap-4 px-6">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6">
                                 <label className="w-56 text-sm font-medium">Email</label>
                                 <input
                                     type="email"
                                     placeholder="Enter Email"
                                     className="flex-1 p-2 border border-gray-300 rounded outline-none"
+                                    onChange={(e) => e.target.value = e.target.value.toLowerCase()}
+                                    onInput={(e) => e.target.value = e.target.value.toLowerCase()}
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                 />
                             </div>
 
                             {/* Gender Dropdown */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">Gender</label>
                                 <div className="flex-1">
                                     <CustomDropdown
@@ -151,7 +179,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* Date of Birth */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">Date of Birth</label>
                                 <div className="flex-1">
                                     <CustomCalendar
@@ -162,7 +190,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* Marital Status Dropdown */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">Marital Status</label>
                                 <div className="flex-1">
                                     <CustomDropdown
@@ -175,7 +203,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* Blood Group Dropdown */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">Blood Group</label>
                                 <div className="flex-1">
                                     <CustomDropdown
@@ -188,7 +216,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* Emergency Contact */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">Emergency Contact</label>
                                 <input
                                     type="text"
@@ -198,7 +226,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* Address */}
-                            <div className="flex items-start gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium pt-2">Address</label>
                                 <textarea
                                     placeholder="Enter Address"
@@ -208,7 +236,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* Allow Personal Info Access Toggle */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">Allow Personal Info Access</label>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" className="sr-only peer" />
@@ -224,12 +252,12 @@ export default function AddEmployeePage() {
 
                     {/* Salary Details */}
                     <div className="border border-gray-300 p-6  shadow-sm pt-0 px-0 pb-3 mb-0">
-                        <h2 className="text-lg font-semibold rounded-xl text-[var(--color1)] pt-3 px-6 bg-[var(--color2)] pb-3">Salary Details</h2>
+                        <h2 className="text-lg font-semibold text-[var(--color1)] pt-3 px-6 bg-[var(--color2)] pb-3">Salary Details</h2>
 
                         <div className="flex flex-col gap-3 border-t border-gray-300 pt-3">
 
                             {/* Salary Cycle */}
-                            <div className="flex items-center gap-4 px-6">
+                            <div className="flex flex-col md:flex-row gap-4 px-6">
                                 <label className="w-56 text-sm font-medium">Salary Cycle</label>
                                 <div className="flex-1">
                                     <CustomDropdown
@@ -243,7 +271,7 @@ export default function AddEmployeePage() {
 
 
                             {/* Salary Type */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">Salary Type</label>
                                 <div className="flex-1">
                                     <CustomDropdown
@@ -256,7 +284,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* Salary Structure Template */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">Salary Structure Template</label>
                                 <div className="flex-1">
                                     <CustomDropdown
@@ -269,10 +297,14 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* Opening Balance */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
-                                <label className="w-56 text-sm font-medium">Opening Balance</label>
-                                <div className="flex flex-1 gap-4">
-                                    <div className="w-1/2">
+                            <div className="flex flex-col gap-2 md:flex-row md:items-start md:gap-4 px-6 border-t border-gray-300 pt-3">
+                                {/* Label */}
+                                <label className="w-full md:w-56 text-sm font-medium">Opening Balance</label>
+
+                                {/* Inputs */}
+                                <div className="flex flex-col gap-2 w-full md:flex-row md:flex-1 md:gap-4">
+                                    {/* Dropdown */}
+                                    <div className="w-full md:w-1/2">
                                         <CustomDropdown
                                             options={['Credit', 'Debit']}
                                             value={openingBalanceType}
@@ -280,18 +312,21 @@ export default function AddEmployeePage() {
                                             placeholder="Select Opening Balance"
                                         />
                                     </div>
+
+                                    {/* Amount Input */}
                                     <input
                                         type="number"
                                         value={openingBalanceAmount}
                                         onChange={(e) => setOpeningBalanceAmount(e.target.value)}
                                         placeholder="Enter Amount Rupees"
-                                        className="w-1/2 p-2 border border-gray-300 rounded outline-none"
+                                        className="w-full md:w-1/2 p-2 border border-gray-300 rounded outline-none"
                                     />
                                 </div>
                             </div>
 
+
                             {/* Shift */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">Select Shift</label>
                                 <div className="flex-1">
                                     <CustomDropdown
@@ -327,14 +362,14 @@ export default function AddEmployeePage() {
 
                     <div className='p-4 border-x-1 border-gray-300 mb-0'></div>
                     <div className="border border-gray-300 p-6  shadow-sm pt-0 px-0 pb-3 mb-0">
-                        <h2 className="text-lg font-semibold pb-3 rounded-xl text-[var(--color1)] pt-3 px-6 bg-[var(--color2)]">
+                        <h2 className="text-lg font-semibold pb-3 text-[var(--color1)] pt-3 px-6 bg-[var(--color2)]">
                             Bank Details
                         </h2>
 
                         <div className="flex flex-col gap-3 border-t border-gray-300 pt-3">
 
                             {/* Bank Name */}
-                            <div className="flex items-center gap-4 px-6">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6">
                                 <label className="w-56 text-sm font-medium">Bank Name<span className="text-red-500">*</span></label>
                                 <input
                                     type="text"
@@ -344,7 +379,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* Bank Account Number */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">Bank Account Number<span className="text-red-500">*</span></label>
                                 <input
                                     type="text"
@@ -354,7 +389,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* Account Holder Name */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">Account Holder Name<span className="text-red-500">*</span></label>
                                 <input
                                     type="text"
@@ -364,7 +399,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* Account Type Dropdown */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">
                                     Bank Account Type<span className="text-red-500">*</span>
                                 </label>
@@ -380,7 +415,7 @@ export default function AddEmployeePage() {
 
 
                             {/* IFSC Code */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">IFSC Code</label>
                                 <input
                                     type="text"
@@ -390,7 +425,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* UPI ID */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">UPI ID</label>
                                 <input
                                     type="text"
@@ -414,14 +449,14 @@ export default function AddEmployeePage() {
                     <div className='p-4 border-x-1 border-gray-300 mb-0'></div>
 
                     <div className="border border-gray-300 p-6 rounded-b-xl shadow-sm pt-0 px-0 ">
-                        <h2 className="text-lg font-semibold pb-3 rounded-xl text-[var(--color1)] pt-3 px-6 bg-[var(--color2)]">
+                        <h2 className="text-lg font-semibold pb-3 text-[var(--color1)] pt-3 px-6 bg-[var(--color2)]">
                             Employment Information
                         </h2>
 
                         <div className="flex flex-col gap-3 ">
 
                             {/* Joining Date Field */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex  flex-col md:flex-row gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">Employee Joining Date</label>
                                 <div className="flex-1">
                                     <CustomCalendar
@@ -432,7 +467,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* UAN */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">UAN</label>
                                 <input
                                     type="text"
@@ -442,7 +477,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* PAN */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">PAN</label>
                                 <input
                                     type="text"
@@ -452,7 +487,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* Aadhaar Number */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">Aadhaar Card Number</label>
                                 <input
                                     type="text"
@@ -462,7 +497,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* Aadhaar Enrollment Number */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">Aadhaar Enrollment No.</label>
                                 <input
                                     type="text"
@@ -472,7 +507,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* PF Number */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">PF Number</label>
                                 <input
                                     type="text"
@@ -482,7 +517,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* PF Joining Date */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">PF Joining Date</label>
                                 <div className="flex-1">
                                     <CustomCalendar selectedDate={pfJoiningDate} onChange={setPfJoiningDate} />
@@ -490,7 +525,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* ESI Details */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">ESI Details Available</label>
                                 <input
                                     type="text"
@@ -500,7 +535,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* ESI Number */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">ESI Number</label>
                                 <input
                                     type="text"
@@ -518,7 +553,7 @@ export default function AddEmployeePage() {
                                 ['EPS Eligible', 'EPS'],
                                 ['HPS Eligible', 'HPS'],
                             ].map(([label, key]) => (
-                                <div key={label} className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                                <div key={label} className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                     <label className="w-56 text-sm font-medium">{label}</label>
                                     <div className="flex-1">
                                         <CustomDropdown
@@ -535,7 +570,7 @@ export default function AddEmployeePage() {
 
 
                             {/* EPS Joining Date */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">EPS Joining Date</label>
                                 <div className="flex-1">
                                     <CustomCalendar selectedDate={epsJoiningDate} onChange={setEpsJoiningDate} />
@@ -543,7 +578,7 @@ export default function AddEmployeePage() {
                             </div>
 
                             {/* EPS Exit Date */}
-                            <div className="flex items-center gap-4 px-6 border-t border-gray-300 pt-3">
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t border-gray-300 pt-3">
                                 <label className="w-56 text-sm font-medium">EPS Exit Date</label>
                                 <div className="flex-1">
                                     <CustomCalendar selectedDate={epsExitDate} onChange={setEpsExitDate} />

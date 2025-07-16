@@ -125,7 +125,7 @@ export default function EmployeeListPage() {
                         <table className="min-w-[640px] w-full text-sm">
                             <thead className="bg-[var(--light-blue)] dark:bg-[var(--light-blue)]">
                                 <tr>
-                                    {['Sr. No', 'Employee Name', 'Designation', 'Department', 'Email', 'Status', 'Details', 'Actions'].map((title, idx) => (
+                                    {['Sr. No', 'Employee Name', 'Designation', 'Department', 'Email', 'Status', 'Actions'].map((title, idx) => (
                                         <th key={idx} className="p-3 border-b border-gray-300 text-left whitespace-nowrap">
                                             {title}
                                         </th>
@@ -134,7 +134,7 @@ export default function EmployeeListPage() {
                             </thead>
                             <tbody>
                                 {filteredEmployees.map((emp, index) => (
-                                    <tr key={emp.id} className="hover:bg-[var(--light-blue-hover)] dark:hover:bg-[var(--light-blue)] text-left">
+                                    <tr key={emp.id} className="hover:bg-[var(--light-blue-hover)] dark:hover:bg-[var(--light-blue-hover)] text-left">
                                         <td className="p-3 border-b border-gray-300">{index + 1}</td>
                                         <td className="p-3 border-b border-gray-300">{emp.name}</td>
                                         <td className="p-3 border-b border-gray-300">{emp.designation}</td>
@@ -146,11 +146,11 @@ export default function EmployeeListPage() {
                                                 <div className="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-[var(--color1)] after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full peer-checked:after:border-white" />
                                             </label>
                                         </td>
-                                        <td className="p-3 border-b border-gray-300 text-[var(--color1)] cursor-pointer">
-                                            <FaEye className="h-5 w-5 inline-block hover:scale-110 transition-transform" title="View Details" />
-                                        </td>
+                                        {/* <td className="p-3 border-b border-gray-300 text-[var(--color1)] cursor-pointer">
+                                        </td> */}
                                         <td className="p-3 border-b border-gray-300">
                                             <div className="flex gap-3 text-[var(--color1)] justify-start">
+                                                <FaEye className="h-5 w-5 inline-block hover:scale-110 transition-transform hover:cursor-pointer" title="View Details" onClick={() => router.push(`/dashboard/employees/${index}`)} />
                                                 <FaEdit title="Edit" className="h-5 w-5 cursor-pointer hover:scale-110 transition-transform" />
                                                 <FaFileExport title="Export" className="h-5 w-5 cursor-pointer hover:scale-110 transition-transform" />
                                             </div>

@@ -118,7 +118,7 @@ export default function NoticePage() {
 
                 {/* Table */}
                 <div className="overflow-x-auto rounded-xl border border-gray-300 border-b-0">
-                    <table className="min-w-[900px] w-full text-sm">
+                    <table className="min-w-full w-full text-sm table-fixed">
                         <thead className="bg-[var(--light-blue)] text-center">
                             <tr>
                                 {['Sr. No', 'Notice Type', 'Publish Date', 'Receiver', 'Description', 'Action'].map((title, idx) => (
@@ -138,13 +138,14 @@ export default function NoticePage() {
                                             <FaEye className="mx-auto cursor-pointer hover:scale-110 transition-transform scale-125" title="View" />
                                         </td>
                                         <td className="p-3 border-b border-gray-300">
-                                            <div className="flex justify-center gap-3 text-[var(--color1)] scale-125">
-                                                <FaEdit title="Edit" className="cursor-pointer hover:scale-110 transition-transform" />
-                                                <FaTrash title="Delete" className="cursor-pointer hover:scale-110 transition-transform text-[var(--color1)]" />
+                                            <div className="flex justify-center gap-3 text-[var(--color1)]">
+                                                <FaEdit title="Edit" className="cursor-pointer hover:scale-110 transition-transform scale-110" />
+                                                <FaTrash title="Delete" className="cursor-pointer hover:scale-110 transition-transform text-[var(--color1)] scale-110" />
                                                 <button className="text-xs bg-[var(--color1)] text-white px-2 py-1 rounded hover:bg-[var(--color11)]">
                                                     Assign
                                                 </button>
                                             </div>
+
                                         </td>
                                     </tr>
                                 ))

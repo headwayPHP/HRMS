@@ -1,7 +1,7 @@
 'use client'
 
-import { HiMenu, HiBell, HiChevronDown } from 'react-icons/hi'
-import { BsSun, BsMoon } from 'react-icons/bs'
+import { HiMenu, HiBell, } from 'react-icons/hi'
+// import { BsSun, BsMoon } from 'react-icons/bs'
 import Alarm from '@/components/alarm'
 import { MdOutlineAccessAlarm } from "react-icons/md";
 import Image from 'next/image'
@@ -21,10 +21,15 @@ export default function Navbar({ toggleSidebar }) {
     }, [darkMode])
 
     return (
-        <header className="h-16 w-full bg-white  px-4 md:px-6 flex items-center justify-between shadow-sm text-black">
+        <header className="h-16 w-full bg-white px-4 md:px-6 flex items-center justify-between shadow-sm text-black z-40 relative">
+
             {/* Left: Sidebar toggle + title */}
             <div className="flex items-center gap-3">
-                <button onClick={toggleSidebar} className="text-xl cursor-pointer">
+                <button
+                    onClick={toggleSidebar}
+                    className="text-xl cursor-pointer block md:block"
+                    name='toggle'
+                >
                     <HiMenu />
                 </button>
                 {/* <h1 className="text-lg font-bold">Admin Panel</h1> */}
@@ -63,11 +68,7 @@ export default function Navbar({ toggleSidebar }) {
                         height={32}
                         className="rounded-full object-cover w-8 h-8"
                     />
-                    <div className="hidden md:flex flex-col leading-tight text-xs">
-                        <span className="font-medium">John Doe</span>
-                        <span className="text-gray-500">Admin</span>
-                    </div>
-                    <HiChevronDown className="text-2xl" />
+
                 </div>
             </div>
         </header>

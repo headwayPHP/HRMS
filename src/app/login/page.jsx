@@ -23,10 +23,10 @@ export default function LoginPage() {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-white font-nunito p-4 select-none ">
-            <div className="rounded-2xl  border-2 border-[#FBC698] bg-white shadow-lg w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 overflow-hidden">
+            <div className="rounded-2xl  border-2 border-[var(--color1)] bg-white shadow-lg w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 overflow-hidden">
 
                 {/* Left: Yellow background and logo */}
-                <div className="flex items-center justify-center bg-[#FF9A431A] p-8">
+                <div className="flex items-center justify-center bg-[var(--color3)] p-8">
                     <img src="/logo.png" alt="Logo" className="max-w-xs w-50 md:w-70" />
                 </div>
 
@@ -34,7 +34,7 @@ export default function LoginPage() {
                 <div className="relative flex items-center justify-center bg-white text-black p-6">
 
                     {/* Decorative top-right corner (RIGHT CONTAINER) */}
-                    <div className="absolute -top-1 -right-1 w-30 h-30  z-0 hidden md:block">
+                    <div className="absolute -top-2 -right-2 w-30 h-30  z-0 hidden md:block">
                         <img src="/logintopright.png" alt="" srcSet="" />
                     </div>
 
@@ -55,7 +55,7 @@ export default function LoginPage() {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
-                            className="w-full p-2 mb-4 mt-2 text-xs border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#FBC698] focus:border-1 focus:border-[#FBC698] transition duration-150"
+                            className="w-full p-2 mb-4 mt-2 text-xs border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[var(--color1)] focus:border-1 focus:border-[var(--color1)] transition duration-150"
                         />
 
                         <label className="text-sm">Password</label>
@@ -66,7 +66,7 @@ export default function LoginPage() {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
-                                className="w-full p-2 border text-xs border-gray-300 rounded pr-12 focus:outline-none focus:ring-1 focus:ring-[#FBC698] focus:border-1 focus:border-[#FBC698]"
+                                className="w-full p-2 border text-xs border-gray-300 rounded pr-12 focus:outline-none focus:ring-1 focus:ring-[var(--color1)] focus:border-1 focus:border-[var(--color1)]"
                             />
                             <div
                                 className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer bg-white  p-1 rounded-full"

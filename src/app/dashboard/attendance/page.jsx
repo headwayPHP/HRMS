@@ -73,6 +73,7 @@ export default function AttendancePage() {
                             <CustomCalendar
                                 selectedDate={selectedDate}
                                 onChange={(date) => setSelectedDate(date)}
+                                showTime={true}
                             />
                         </div>
                     </div>

@@ -73,7 +73,7 @@ export default function AssetTypePage() {
                                         </label>
                                     </td>
                                     <td className="p-3 border-b border-gray-300 text-center">
-                                        <div className="flex justify-center gap-3 text-[var(--color1)] scale-125">
+                                        <div className="flex justify-center gap-3 text-[var(--color1)]">
                                             <FaEdit
                                                 className="cursor-pointer hover:text-[var(--color11)] scale-125"
                                                 onClick={() => router.push(`/dashboard/asset/asset_type/edit/${type.id}`)}

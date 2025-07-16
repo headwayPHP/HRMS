@@ -8,9 +8,10 @@
   /*primary color*/
   --color11: #6BB4FF;
   /*primary color on hover*/
-  --color2: #FFFAF5;
-  --color3: #fde6d2;
+  --color2: #E4F2FD;
+  --color3: #E4F2FD;
   --light-blue: #E4F2FD;
+  /* --light-blue-hover: #F9FCFF; */
   --light-blue-hover: #F9FCFF;
 }
 
@@ -55,7 +56,28 @@ button {
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 154, 67, 0.6);
+  /* background-color: rgba(255, 154, 67, 0.6); */
+  background-color: var(--color-1);
   /* var(--color1) */
   border-radius: 4px;
+}
+
+/* For Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: 0.1px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color1);
+  border-radius: 0.5px;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color1) transparent;
 }

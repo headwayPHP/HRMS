@@ -26,11 +26,13 @@ export default function LeaveTypePage() {
 
     return (
         <Layout>
-            <div className="p-6 text-black pt-0">
-                {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6 gap-4">
-                    <h1 className="text-2xl font-bold text-[var(--color1)]">Leave <br /><Breadcrumbs />
-                        <div className="text-lg font-semibold text-[var(--color1)]">Leave Type List</div></h1>
+            <div className="p-4 sm:p-6 text-black pt-0">
+                {/* Page Header */}
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3">
+                    <div>
+                        <h1 className="text-2xl font-bold text-[var(--color1)]">Leave Type</h1>
+                        <Breadcrumbs />
+                    </div>
                     <button
                         onClick={() => router.push('/dashboard/leave/type/create')}
                         className="flex items-center gap-2 bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-[var(--color11)]"
@@ -40,11 +42,10 @@ export default function LeaveTypePage() {
                     </button>
                 </div>
 
-                {/* Table Title */}
-
-                {/* Table */}
-                <div className="overflow-x-auto rounded-xl border border-gray-300">
-                    <table className="w-full text-sm">
+                {/* Table Section */}
+                <h2 className="text-lg font-semibold mb-4 text-[var(--color1)]">Leave Type List</h2>
+                <div className="overflow-x-auto rounded-xl border border-gray-300 border-b-0">
+                    <table className="min-w-[720px] w-full text-sm">
                         <thead className="bg-[var(--light-blue)]">
                             <tr className="text-center">
                                 <th className="p-3 border-b border-gray-300">Sr. No</th>
@@ -72,22 +73,22 @@ export default function LeaveTypePage() {
                                                 onChange={() => toggleStatus(item.id)}
                                                 className="sr-only peer"
                                             />
-                                            <div className="w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:bg-[var(--color1)] after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full" />
+                                            <div className="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-[var(--color1)] after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full peer-checked:after:border-white" />
                                         </label>
                                     </td>
 
                                     {/* Actions */}
                                     <td className="p-3 border-b border-gray-300">
-                                        <div className="flex justify-center gap-3 text-[var(--color1)] scale-125">
+                                        <div className="flex justify-center gap-3 text-[var(--color1)]">
                                             <FaEdit
-                                                className="cursor-pointer"
-                                                title="Edit"
+                                                className="cursor-pointer hover:text-[var(--color11)]"
                                                 onClick={() => router.push(`/dashboard/leave/type/edit/${item.id}`)}
+                                                title="Edit"
                                             />
                                             <FaDeleteLeft
-                                                className="cursor-pointer"
-                                                title="Delete"
+                                                className="cursor-pointer hover:text-[var(--color11)]"
                                                 onClick={() => alert(`Delete ${item.type}?`)}
+                                                title="Delete"
                                             />
                                         </div>
                                     </td>
