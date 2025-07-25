@@ -9,6 +9,7 @@ import {
 import { HiWindow } from 'react-icons/hi2'
 import { IoIosArrowDown, IoIosArrowForward } from 'react-icons/io'
 import { useRouter } from 'next/navigation'
+import { MdOutlineShield, MdTask } from "react-icons/md"
 
 const menuItems = [
     { label: 'Dashboard', href: '/dashboard', icon: HiHome },
@@ -35,6 +36,8 @@ const menuItems = [
             { href: '/dashboard/asset/assets', label: 'Assets' },
         ],
     },
+    { label: 'Policy', href: '/dashboard/policy', icon: MdOutlineShield },
+    { label: 'Task', href: '/dashboard/task', icon: MdTask },
 ]
 
 export default function Sidebar({ isOpen, setIsOpen }) {
@@ -42,7 +45,21 @@ export default function Sidebar({ isOpen, setIsOpen }) {
     const [expandedMenus, setExpandedMenus] = useState({})
     const router = useRouter()
 
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        const checkIsMobile = () => {
+            setIsMobile(window.innerWidth < 768)
+        }
+
+        checkIsMobile()
+        window.addEventListener('resize', checkIsMobile)
+
+        return () => window.removeEventListener('resize', checkIsMobile)
+    }, [])
+
+    if (!isOpen && isMobile) return null
+
 
     useEffect(() => {
         menuItems.forEach(item => {
@@ -62,11 +79,10 @@ export default function Sidebar({ isOpen, setIsOpen }) {
         router.push('/login')
     }
 
-    if (!isOpen && isMobile) return null
 
     return (
         <aside
-            className={`
+            className={` sidebar
     bg-[var(--color1)] text-white  h-screen flex flex-col transition-all duration-300
     fixed top-0 z-50
     ${isOpen ? 'left-0 w-64' : '-left-64'}
@@ -75,11 +91,11 @@ export default function Sidebar({ isOpen, setIsOpen }) {
 
         >
             {/* Logo */}
-            <div className="flex items-center justify-center pb-4 pt-2 bg-[var(--color2)]">
+            <div className="flex items-center justify-center pb-2 pt-2 bg-[var(--color2)]">
                 <img
                     src="/logo.png"
                     alt="Logo"
-                    className={`transition-all duration-300 ${isOpen ? 'w-24' : 'w-8'}`}
+                    className={`transition-all duration-300 ${isOpen ? 'w-24' : 'w-13'}`}
                 />
             </div>
 
@@ -104,7 +120,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
                                 {isSubmenu ? (
                                     <button
                                         onClick={() => setExpandedMenus(prev => ({ ...prev, [label]: !prev[label] }))}
-                                        className={`w-full flex items-center gap-3 ${isOpen ? '' : 'justify-center'} px-4 py-3 rounded-sm text-sm font-medium transition-all duration-200 ${isCurrent ? 'bg-[var(--color11)] text-[#fff]' : 'hover:bg-[var(--color2)]  text-white hover:text-black'
+                                        className={`w-full flex items-center gap-3 ${isOpen ? '' : 'justify-center'} px-4 py-3 rounded-sm text-sm font-medium transition-all duration-200 ${isCurrent ? 'bg-[var(--color11)] text-[#fff]' : 'hover:bg-[#FEFEFE]  text-white hover:text-black'
                                             }`}
                                     >
                                         <Icon size={20} className="shrink-0" />
@@ -118,7 +134,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
                                 ) : (
                                     <Link
                                         href={href}
-                                        className={`flex items-center gap-3 ${isOpen ? '' : 'justify-center'} px-4 py-3 rounded-sm text-sm font-medium transition-all duration-200 ${isCurrent ? 'bg-[var(--color11)] text-[#fff]' : 'hover:bg-[var(--color2)] text-white hover:text-black'
+                                        className={`flex items-center gap-3 ${isOpen ? '' : 'justify-center'} px-4 py-3 rounded-sm text-sm font-medium transition-all duration-200 ${isCurrent ? 'bg-[var(--color11)] text-[#fff]' : 'hover:bg-[#FEFEFE] text-white hover:text-black'
                                             }`}
                                     >
                                         <Icon size={20} className="shrink-0" />
@@ -132,7 +148,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
                                             <Link
                                                 key={href}
                                                 href={href}
-                                                className={`text-sm py-2 px-2 rounded hover:bg-[var(--color2)] hover:text-[#000] ${pathname === href ? 'text-[#fff] font-medium' : 'text-white hover:text-black'
+                                                className={`text-sm py-2 px-2 rounded hover:bg-[#FEFEFE] hover:text-[#000] ${pathname === href ? 'text-[#fff] font-medium' : 'text-white hover:text-black'
                                                     }`}
                                             >
                                                 {label}

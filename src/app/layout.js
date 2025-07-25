@@ -1,3 +1,4 @@
+
 import { Geist, Geist_Mono, Nunito_Sans } from "next/font/google";
 import LoadingProvider from '@/components/LoadingProvider'
 import "./globals.css";
@@ -16,7 +17,6 @@ const geistMono = Geist_Mono({
 const nunito = Nunito_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '600', '700'],
-  display: 'swap',
   variable: '--font-nunito'
 })
 
@@ -28,7 +28,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="light">
-      <body
+      <body suppressHydrationWarning
         className={`${nunito.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-white text-black`}
       >
         <LoadingProvider>

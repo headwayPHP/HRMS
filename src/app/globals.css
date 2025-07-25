@@ -76,8 +76,26 @@ button {
   border-radius: 0.5px;
 }
 
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 0.5px;
+}
+
+
 /* For Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--color1) transparent;
+}
+
+/* Hide number input spinners for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide number input arrows for Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

@@ -40,9 +40,9 @@ export default function CreateLeaveRequestPage() {
             <div className="p-6 text-black dark:text-dark pt-0 max-w-7xl mx-auto">
                 <div className="flex items-end justify-between mb-6">
                     <h1 className="text-2xl font-bold text-[var(--color1)]">
-                        Leave <br />
+                        Create Leave Request <br />
                         <Breadcrumbs paths={['Leave', 'Create Leave Request']} />
-                        <div className='text-lg'>Leave Request</div>
+                        {/* <div className='text-lg'>Leave Request</div> */}
                     </h1>
 
                     <button

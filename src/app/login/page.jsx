@@ -86,11 +86,11 @@ export default function LoginPage() {
                                     type="checkbox"
                                     checked={remember}
                                     onChange={() => setRemember(!remember)}
-                                    className="accent-[#ffb168]"
+                                    className="accent-[var(--color1)]"
                                 />
                                 Remember me
                             </label>
-                            <a href="/forgot-password" className="text-[var(--color1)] hover:underline">Forgot password?</a>
+                            <a className="text-[var(--color1)] hover:underline hover:cursor-pointerAvoid display: 'swap' — it’s known to cause hydration issues due to FOUT (Flash of Unstyled Text)." onClick={() => router.push('/login/sendotp')}>Forgot password?</a>
                         </div>
 
                         <button

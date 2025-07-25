@@ -66,7 +66,7 @@ export default function LeavePage() {
             <div className="p-4 sm:p-6 text-black dark:text-black pt-0">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3">
                     <div>
-                        <h1 className="text-2xl font-bold text-[var(--color1)]">Leave</h1>
+                        <h1 className="text-2xl font-bold text-[var(--color1)]">Leave Request</h1>
                         <Breadcrumbs />
                     </div>
                     <button

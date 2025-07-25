@@ -6,6 +6,7 @@ import CustomDropdown from '@/components/CustomDropdown'
 import Layout from '@/components/Layout'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import CustomCalendar from '@/components/CustomCalendar' // ✅ Import
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function AddEmployeePage() {
     const router = useRouter()
@@ -34,6 +35,27 @@ export default function AddEmployeePage() {
         HPS: '',
     });
 
+    const handleSubmit = async () => {
+        e.preventDefault();
+
+        // Here you would typically:
+        // 1. Validate form data
+        // 2. Send data to your API
+        // 3. Handle response
+
+        // For now, we'll just redirect after a short delay to simulate an API call
+        try {
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            // Redirect to employees dashboard
+            router.push('/dashboard/employees');
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            // You would typically show an error message here
+        }
+    };
+
 
     return (
         <Layout>
@@ -46,14 +68,15 @@ export default function AddEmployeePage() {
                     </h1>
                     <button
                         onClick={() => router.back()}
-                        className="bg-white border border-[var(--color1)] text-[var(--color1)] px-4 py-2 rounded-lg hover:bg-gray-100"
+                        className="bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-[var(--color11)] flex gap-2 items-center"
                     >
+                        <FaArrowLeft />
                         Back
                     </button>
                 </div>
 
                 {/* Form Section */}
-                <form className="space-y-8">
+                <form className="space-y-8" onSubmit={handleSubmit}>
                     {/* Employee Basic Details */}
                     <div className="border border-gray-300 p-6 rounded-t-xl shadow-sm pt-0 px-0 pb-3 mb-0">
                         <h2 className="text-lg font-semibold pb-3 rounded-t-xl text-[var(--color1)] pt-3 px-6 bg-[var(--color2)]">Employee Basic Details</h2>
@@ -601,11 +624,37 @@ export default function AddEmployeePage() {
                     <div className="flex justify-end gap-4">
                         <button
                             type="button"
-                            onClick={() => router.back()}
+                            onClick={() => {
+                                setDob(null);
+                                setJoiningDate(null);
+                                setPfJoiningDate(null);
+                                setEpsJoiningDate(null);
+                                setEpsExitDate(null);
+                                setEmployeeType('');
+                                setMaritalStatus('');
+                                setGender('');
+                                setBloodGroup('');
+                                setSalaryCycle('');
+                                setSalaryType('');
+                                setSalaryStructure('');
+                                setOpeningBalanceType('');
+                                setOpeningBalanceAmount('');
+                                setSelectedShift('');
+                                setAccountType('');
+                                setEligibility({
+                                    PF: '',
+                                    ESI: '',
+                                    PT: '',
+                                    LWF: '',
+                                    EPS: '',
+                                    HPS: '',
+                                });
+                            }}
                             className="bg-white text-[var(--color1)] border border-[var(--color1)] px-6 py-2 rounded-lg"
                         >
                             Reset
                         </button>
+
                         <button
                             type="submit"
                             className="bg-[var(--color1)] text-white px-6 py-2 rounded-lg hover:bg-[var(--color11)]"

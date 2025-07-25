@@ -147,7 +147,7 @@ export default function CustomCalendar({ selectedDate: initialDate, onChange, sh
 
             {isCalendarOpen && (
                 <div
-                    className={`absolute z-50 bg-white shadow-lg rounded-2xl mt-2 border border-[var(--color1)] ${showTime ? 'w-[480px]' : 'w-[280px]'
+                    className={`absolute z-50 bg-white shadow-lg rounded-2xl mt-2 border border-[var(--color1)] ${showTime ? 'w-[540px]' : 'w-[290px]'
                         }`}
                 >
 
@@ -157,10 +157,42 @@ export default function CustomCalendar({ selectedDate: initialDate, onChange, sh
 
                         <div className="md:w-[280px] p-4">
                             {/* Calendar Header */}
-                            <div className="flex justify-between items-center px-4 pt-3 pb-2 border-b border-[var(--color1)] mb-2">
-                                <span className="text-black font-medium text-lg">
-                                    {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}
-                                </span>
+                            <div className="flex justify-between items-center px-4 pt-3 pb-2 pr-2 border-b border-[var(--color1)] mb-2 pl-0">
+                                <div className="flex items-center gap-2">
+                                    {/* Month Dropdown */}
+                                    <select
+                                        className="border border-gray-300 rounded px-2 py-1 text-sm"
+                                        value={currentDate.getMonth()}
+                                        onChange={(e) =>
+                                            setCurrentDate(new Date(currentDate.getFullYear(), parseInt(e.target.value), 1))
+                                        }
+                                    >
+                                        {Array.from({ length: 12 }, (_, i) => (
+                                            <option key={i} value={i}>
+                                                {new Date(0, i).toLocaleString('default', { month: 'long' })}
+                                            </option>
+                                        ))}
+                                    </select>
+
+                                    {/* Year Dropdown */}
+                                    <select
+                                        className="border border-gray-300 rounded px-2 py-1 text-sm mr-2"
+                                        value={currentDate.getFullYear()}
+                                        onChange={(e) =>
+                                            setCurrentDate(new Date(parseInt(e.target.value), currentDate.getMonth(), 1))
+                                        }
+                                    >
+                                        {Array.from({ length: 101 }, (_, i) => {
+                                            const year = 1975 + i;
+                                            return (
+                                                <option key={year} value={year}>
+                                                    {year}
+                                                </option>
+                                            );
+                                        })}
+                                    </select>
+                                </div>
+
                                 <div className="flex gap-2">
                                     <button type="button" onClick={prevMonth} className="text-[var(--color2)] bg-[var(--color1)] px-2 rounded font-bold">
                                         ‹

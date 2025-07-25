@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import Layout from '@/components/Layout'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import CustomDropdown from '@/components/CustomDropdown'
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function CreateLeaveTypePage() {
     const router = useRouter()
@@ -33,17 +34,18 @@ export default function CreateLeaveTypePage() {
 
     return (
         <Layout>
-            <div className="p-6 text-black pt-0 max-w-7xl mx-auto">
+            <div className="p-6 text-black pt-0 max-w-7xl mx-auto mt-4">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-6">
                     <h1 className="text-2xl font-bold text-[var(--color1)]">
-                        Leave <br />
+                        Create Leave Type <br />
                         <Breadcrumbs />
                     </h1>
                     <button
                         onClick={() => router.back()}
-                        className="bg-[var(--color1)] text-white px-6 py-2 rounded-lg hover:bg-[var(--color11)]"
+                        className="bg-[var(--color1)] text-white px-4 py-2 rounded-lg hover:bg-[var(--color11)] flex gap-2 items-center"
                     >
+                        <FaArrowLeft />
                         Back
                     </button>
                 </div>
