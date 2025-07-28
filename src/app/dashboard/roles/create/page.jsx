@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import Layout from '@/components/Layout'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { FaArrowLeft } from "react-icons/fa";
+import ConfirmModal from '@/components/ConfirmModal';
 
 export default function CreateRolePage() {
     const router = useRouter()
@@ -13,16 +14,25 @@ export default function CreateRolePage() {
     const [status, setStatus] = useState(true) // true = Active, false = Inactive
     const [canLogin, setCanLogin] = useState(false) // true = Yes, false = No
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (!roleName) {
-            alert('Role Name is required.')
-            return
-        }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     if (!roleName) {
+    //         alert('Role Name is required.')
+    //         return
+    //     }
 
-        alert('Role created successfully!')
-        router.push('/dashboard/roles')
-    }
+    //     alert('Role created successfully!')
+    //     router.push('/dashboard/roles')
+    // }
+
+    const handleSubmit = () => {
+        if (!roleName) {
+            alert('Role Name is required.');
+            return;
+        }
+        alert('Role created successfully!');
+        router.push('/dashboard/roles');
+    };
 
     const handleReset = () => {
         setRoleName('')
@@ -50,7 +60,7 @@ export default function CreateRolePage() {
 
                 {/* Form */}
                 <form
-                    onSubmit={handleSubmit}
+                    onConfirm={handleSubmit}
                     className="p-6 border-2 border-gray-200 rounded-lg space-y-8 bg-white shadow-sm"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
@@ -113,12 +123,23 @@ export default function CreateRolePage() {
                         >
                             Reset
                         </button>
-                        <button
-                            type="submit"
-                            className="bg-[var(--color1)] text-white px-6 py-2 rounded-lg hover:bg-[var(--color11)]"
-                        >
-                            Add
-                        </button>
+                        <ConfirmModal
+                            triggerText="Add"
+                            title="Create Role?"
+                            description="Are you sure you want to create this role?"
+                            confirmText="Yes, Create"
+                            cancelText="Cancel"
+                            buttonClass="bg-[var(--color1)] text-white px-6 py-2 rounded-lg hover:bg-[var(--color11)]"
+                            onConfirm={() => {
+                                if (!roleName) {
+                                    alert('Role Name is required.')
+                                    return
+                                }
+                                alert('Role created successfully!')
+                                router.push('/dashboard/roles')
+                            }}
+                        />
+
                     </div>
                 </form>
 

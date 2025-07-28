@@ -5,7 +5,7 @@ import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 
 export default function Layout({ children }) {
-    const [sidebarOpen, setSidebarOpen] = useState(false)
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
@@ -18,7 +18,7 @@ export default function Layout({ children }) {
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
-    const toggleSidebar = () => setSidebarOpen(prev => !prev)
+    // const toggleSidebar = () => setSidebarOpen(prev => !prev)
 
     return (
         <div className="flex h-screen overflow-hidden relative">
