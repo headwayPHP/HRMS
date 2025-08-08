@@ -74,8 +74,9 @@ export default function SendOtpPage() {
                                 : "Enter your email to receive a one-time password"}
                         </p>
 
-                        <label className="text-sm">Email Address</label>
+                        <label className="text-sm" htmlFor='email'>Email Address</label>
                         <input
+                            id='email'
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -86,19 +87,30 @@ export default function SendOtpPage() {
 
                         {otpSent && (
                             <>
-                                <label className="text-sm">Enter OTP</label>
+                                <label className="text-sm" htmlFor='otp'>Enter OTP</label>
                                 <input
+                                    id='otp'
                                     type="text"
                                     maxLength={6}
                                     value={otp}
-                                    onChange={(e) => setOtp(e.target.value)}
+                                    onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
                                     placeholder="6-digit OTP"
                                     className="w-full p-2 mb-2 mt-2 text-xs border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[var(--color1)]"
                                 />
                                 <div className="text-xs text-gray-500 mb-4">
-                                    {timer > 0
-                                        ? `Resend in ${timer}s`
-                                        : <span className="text-[var(--color1)] hover:underline cursor-pointer" onClick={handleSendOtp}>Resend OTP</span>}
+                                    {timer > 0 ? (
+                                        <span className="text-xs text-gray-500 mb-4">
+                                            Resend in {timer}s
+                                        </span>
+                                    ) : (
+                                        <button
+                                            type="button"
+                                            onClick={handleSendOtp}
+                                            className="text-xs text-[var(--color1)] hover:underline mb-4"
+                                        >
+                                            Resend OTP
+                                        </button>
+                                    )}
                                 </div>
                             </>
                         )}

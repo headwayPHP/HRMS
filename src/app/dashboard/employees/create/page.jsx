@@ -114,8 +114,9 @@ export default function AddEmployeePage() {
 
                             {/* Employee Email */}
                             <div className="flex flex-col md:flex-row md:items-center gap-4 px-6 border-t-1 pt-3 border-gray-300">
-                                <label className="w-56 text-sm font-medium">Employee Email</label>
+                                <label htmlFor='email' className="w-56 text-sm font-medium">Employee Email</label>
                                 <input
+                                    name='email'
                                     type="email"
                                     placeholder="Enter Employee Email"
                                     className="flex-1 p-2 border border-gray-300 rounded outline-none"

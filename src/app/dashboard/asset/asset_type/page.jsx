@@ -62,7 +62,7 @@ export default function AssetTypePage() {
                                     <td className="p-3 border-b border-gray-300">{type.name}</td>
                                     <td className="p-3 border-b border-gray-300">{type.count}</td>
                                     <td className="p-3 border-b border-gray-300">
-                                        <label className="inline-flex items-center cursor-pointer relative">
+                                        <label className="inline-flex items-center cursor-pointer relative" >
                                             <input
                                                 type="checkbox"
                                                 checked={type.active}

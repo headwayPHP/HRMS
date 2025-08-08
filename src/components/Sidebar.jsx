@@ -23,9 +23,9 @@ const menuItems = [
         title: 'Employee Management',
         icon: HiUsers,
         children: [
-            { id: 'designations', title: 'Designations', href: '/dashboard/roles' },
-            { id: 'departments', title: 'Departments', href: '/dashboard/departments' },
             { id: 'employees', title: 'Employees', href: '/dashboard/employees' },
+            { id: 'designations', title: 'Designations', href: '/dashboard/designations' },
+            { id: 'departments', title: 'Departments', href: '/dashboard/departments' },
         ],
     },
     {
@@ -35,13 +35,19 @@ const menuItems = [
         icon: HiCalendar,
     },
     {
+        id: 'roles',
+        title: 'Roles',
+        href: '/dashboard/roles',
+        icon: HiUserGroup,
+    },
+    {
         id: 'leave',
         title: 'Leave',
         icon: HiBriefcase,
         children: [
-            { id: 'holidays', title: 'Holidays', href: '/dashboard/holidays' },
-            { id: 'leave-types', title: 'Leave Types', href: '/dashboard/leave/type' },
             { id: 'leave-requests', title: 'Leave Requests', href: '/dashboard/leave/request' },
+            { id: 'leave-types', title: 'Leave Types', href: '/dashboard/leave/type' },
+            { id: 'holidays', title: 'Holidays', href: '/dashboard/holidays' },
         ],
     },
     {

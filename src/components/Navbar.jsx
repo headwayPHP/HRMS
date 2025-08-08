@@ -26,6 +26,7 @@ export default function Navbar({ toggleSidebar }) {
             {/* Left: Sidebar toggle + title */}
             <div className="flex items-center gap-3">
                 <button
+                    id='toggle'
                     onClick={toggleSidebar}
                     className="text-xl cursor-pointer block md:block"
                     name='toggle'
