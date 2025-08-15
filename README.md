@@ -48,7 +48,7 @@ shift + alt + 4 = for code completion copilot toggle
 
 ----
 
-Smart Chokidar:
+Smart Chokidar: 
 
 - opening and closing facility of gate (form add facilities)
 - ?? Service Provider add option (full time or schedule time) / schedule/unschedule -> day & night shift

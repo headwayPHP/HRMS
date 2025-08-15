@@ -147,7 +147,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
             </div>
 
             {/* Menu */}
-            <div className="flex-1 overflow-y-auto custom-scroll px-4 pb-4 mt-3">
+            <div className={`flex-1 overflow-y-auto custom-scroll px-4 pb-4 mt-3 ${isOpen ? 'pr-1' : ''}`}>
                 <nav className="flex flex-col gap-3">
                     {menuItems.map(item => {
                         const isSubmenu = !!item.children
